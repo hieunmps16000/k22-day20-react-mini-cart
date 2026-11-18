@@ -12,15 +12,17 @@ function Cart({ cart, setCart }) {
                     <span className="block text-center">Giỏ hàng trống!</span>
                 )}
             </div>
-            <div className="text-[18px] font-[500] mt-[20px]">
-                <div>Tổng sản phẩm: {cart.reduce((total, item) => (total += item.quantity), 0)}</div>
-                <div>
-                    <span>
-                        Tổng tiền:{" "}
-                        {`${cart.reduce((total, item) => (total += item.price * item.quantity), 0).toLocaleString("vi-VN")}đ`}
-                    </span>
+            {cart.length > 0 && (
+                <div className="text-[18px] font-[500] mt-[20px]">
+                    <div>Tổng sản phẩm: {cart.reduce((total, item) => (total += item.quantity), 0)}</div>
+                    <div>
+                        <span>
+                            Tổng tiền:{" "}
+                            {`${cart.reduce((total, item) => (total += item.price * item.quantity), 0).toLocaleString("vi-VN")}đ`}
+                        </span>
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 }
